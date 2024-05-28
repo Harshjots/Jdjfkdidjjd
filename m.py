@@ -211,7 +211,7 @@ def start_attack_reply(message, target, port, time):
 # Dictionary to store the last time each user ran the /bgmi command
 bgmi_cooldown = {}
 
-COOLDOWN_TIME =3
+COOLDOWN_TIME =300
 
 # Handler for /bgmi command
 @bot.message_handler(commands=['bgmi'])
@@ -221,7 +221,7 @@ def handle_bgmi(message):
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 3:
+            if user_id in bgmi_cooldown and (datetime.datetime.now() - bgmi_cooldown[user_id]).seconds < 300:
                 response = "You Are On Cooldown ❌. Please Wait 3min Before Running The /bgmi Command Again."
                 bot.reply_to(message, response)
                 return
@@ -283,7 +283,7 @@ def show_help(message):
 🤖 To See Admin Commands:
 💥 /admincmd : Shows All Admin Commands.
 
-Buy From : @KNIGHT_MONEY
+Buy From : @IDNIAYT
 '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
@@ -300,7 +300,7 @@ def welcome_start(message):
     user_name = message.from_user.first_name
     response = f'''👋🏻Welcome to Your Home, {user_name}! Feel Free to Explore.
 🤖Try To Run This Command : /help 
-✅Owner :- @KNIGHT_MONEY'''
+✅Owner :- @IDNIAYT'''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['rules'])
