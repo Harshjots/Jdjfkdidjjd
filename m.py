@@ -211,7 +211,7 @@ def start_attack_reply(message, target, port, time):
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /attackcommand
-attack _cooldown = {}
+attack_cooldown = {}
 
 COOLDOWN_TIME =0
 
